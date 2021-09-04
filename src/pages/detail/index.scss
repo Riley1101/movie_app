@@ -1,0 +1,105 @@
+@import '../styles/abstracts';
+
+.detail__container{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr;
+    grid-template-rows: 100%;
+
+    gap: spacing(md);
+    border-radius: $radius;
+    @include small{
+        grid-template-columns: 1fr 100% 1fr;
+        gap: 0;
+        padding: spacing(md);
+        
+    }
+}
+
+
+.info{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+
+     
+
+        &__content{
+            display: grid;
+            gap: spacing(md);
+            align-self: center;
+            margin-bottom: spacing(md) * 3;
+            &__title{
+                 font-size: clamp(1.75rem, 4vw, 3rem);
+                 line-height: 1.5;
+                 font-weight: normal;
+                 margin: 0;
+            }
+
+            &__tags{
+                display: flex;
+                list-style-type: none;
+                padding: 0;
+                gap: spacing(md);
+
+                &__item{
+                    border: solid 1px rgba(color(dark),0.3);
+                    padding:.3em spacing(md);
+                    border-radius: $radius;
+                    color: rgba(color(dark),0.8);
+                    cursor: pointer;
+                }
+            }
+
+            &__desc{
+                width: 80%;
+                line-height: 1.5;
+                color: rgba(color(dark),0.8);
+            }
+            &__cta{
+                width: max-content;
+                padding: .8em spacing(xl);
+                background-color: color(accent);
+                color: color(light);
+                text-transform: uppercase;
+                border-radius: $radius;
+                border: none;
+                cursor: pointer;
+                justify-self: end;
+
+            }
+        }
+
+    
+        &__profile{
+            width: 100%;
+            display: grid;
+            place-items: center;
+            border-radius: $radius;
+            &__img{
+                width: 500px;
+                object-fit: cover;
+                aspect-ratio: 1/1;
+                border-radius: $radius;
+            }
+        }
+
+    @include small{
+        grid-auto-flow: dense;
+
+        &__content{
+            margin-top: spacing(xl);
+            grid-row: 2/3;
+        }
+
+        &__profile{
+            &__img{
+                width: 100%;
+            }
+        }
+    }
+}

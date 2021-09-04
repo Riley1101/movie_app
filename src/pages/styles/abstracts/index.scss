@@ -1,0 +1,40 @@
+$spacings:(
+    sm:.5em,
+    md:1em,
+    lg:1.5em,
+    xl:2em,
+);
+
+$text-sizes:(
+    sm:.8rem,
+    md:1rem,
+    lg:1.5rem,
+    xl:2rem
+);
+
+$colors :(
+    dark:#000,
+    accent:#DA0037,
+    light:#fff,
+);
+
+
+@function color($value){
+    @return map-get($map: $colors, $key:$value )
+};
+
+@function text($size){
+    @return map-get($map: $text-sizes, $key:$size )
+};
+@function spacing($size){
+    @return map-get($map: $spacings, $key:$size )
+};
+
+
+@mixin small {
+    @media (max-width:600px) {
+        @content;
+    }
+}
+
+$radius:20px;

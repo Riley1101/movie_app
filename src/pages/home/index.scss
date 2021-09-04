@@ -1,0 +1,68 @@
+@import '../styles/abstracts/index.scss';
+
+
+.home{
+    width: 100%;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr;
+    grid-template-rows: 5em 3em auto;
+    padding: spacing(md);
+    gap: spacing(md);
+    border-radius: $radius;
+}
+
+.header{
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top : spacing(xl);
+
+    &__title{
+        font-size: clamp(1.75rem, 4vw, 2.1rem);
+        font-weight: normal
+    };
+    &__search{
+        padding-inline: spacing(lg) ;
+        padding-block: spacing(sm) + .2em ;
+
+        border-radius: $radius;
+        border: solid 1px rgba(color(dark),.3);
+        outline: none;
+    }
+}
+
+.tags{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    &__list{
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        gap: spacing(md);
+    &__item{
+        padding-inline: spacing(sm);
+        padding-block: spacing(sm) - .1em;
+        border-radius: $radius;
+        border: solid 1px rgba(color(dark),.3);
+        cursor: pointer;
+        font-size: text(sm);
+    }
+    }
+}
+
+.cards{
+    grid-column: 2/3;
+    grid-row: 3/4;
+
+    padding-top: spacing(lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap: spacing(md);
+
+
+}
